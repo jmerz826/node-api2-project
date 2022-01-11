@@ -20,9 +20,10 @@ function findById(id) {
 }
 
 function insert(post) {
+  const {title, contents} = post
   return db('posts')
     .insert(post)
-    .then(ids => ({ id: ids[0] }));
+    .then(ids => ({ id: ids[0], title, contents }));
 }
 
 function update(id, post) {
